@@ -1,0 +1,87 @@
+server:
+  port: 18082
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/mydb
+  application:
+    name: wvlike
+  datasource:
+    className: "com.alibaba.druid.pool.DruidDataSource"
+    dataSourceMap:
+      driver-class-name: "com.mysql.cj.jdbc.Driver"
+      url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+      username: "root"
+      password: "root"
+
+#    driver-class-name: "com.mysql.cj.jdbc.Driver"
+#    url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+#    username: "root"
+#    password: "root"
+
+  #redis配置
+  redis:
+    host: localhost
+    port: 6379
+
+  #rabbitmq配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# apollo集成
+# apollo 配置应用的 appid
+app:
+  id: ${spring.application.name}
+# apollo meta-server地址，一般同config-server地址
+apollo:
+  meta: http://127.0.0.1:8080
+#启用apollo配置开关
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true
+# apollo 使用配置的命名空间，多个以逗号分隔
+#  namespaces: application
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.ismyself.test.dao
+
+
+#hystrix 配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 100000
+          strategy: SEMAPHORE
+
+#connection-timeout:服务连接超时时间
+#socket-connect：HTTP请求超时时间
+#timeoutInMilliseconds：feign连接超时时间
+#cluster-name：Elasticsearch的集群节点名称，这里需要和Elasticsearch集群节点名称保持一致
+#cluster-nodes：Elasticsearch节点通信地址
+
+
+
+student:
+  name: txw-first

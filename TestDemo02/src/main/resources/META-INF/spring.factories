@@ -1,0 +1,5 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.ismyself.testDmo.springDemo.MyEnvironmentPostProcessor
+
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#  com.ismyself.testDmo.configuration.DataSourceConfig.MyBatisConfigCustomer

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/EurekaDemo/EurekaDemo.iml" filepath="$PROJECT_DIR$/EurekaDemo/EurekaDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestDemo02/TestDemo02.iml" filepath="$PROJECT_DIR$/TestDemo02/TestDemo02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wvlike.iml" filepath="$PROJECT_DIR$/wvlike.iml" />
+    </modules>
+  </component>
+</project>
