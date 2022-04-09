@@ -7,15 +7,9 @@
         <groupId>com.ismyself</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wvlike-common</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>wvlike-eureka-server</artifactId>
 
-    <description>
-        公共服务
-    </description>
 
 </project>
