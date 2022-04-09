@@ -1,0 +1,25 @@
+#忽略所有.svn目录
+.svn/
+
+#忽略所有target目录
+target/
+*.jar
+!.mvn/wrapper/*
+*.war
+*.zip
+*.tar
+*.tar.gz
+.flattened-pom.xml
+
+#忽略所有.idea目录
+*/.idea/*
+.idea/*
+#忽略所有.iml文件
+*.ipr
+*.iml
+*.iws
+
+#generator path
+mybatis-plus-generator/
+
+.git/
