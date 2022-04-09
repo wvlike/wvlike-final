@@ -18,6 +18,7 @@
     <description>
         所有项目父工程
     </description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
