@@ -1,4 +1,4 @@
-package com.wvlike.gateway.common;
+package com.ismyself.common.base.result;
 
 import lombok.Builder;
 import lombok.Data;
