@@ -5,6 +5,8 @@
 
     <modules>
         <module>wvlike-common</module>
+        <module>wvlike-gateway</module>
+
     </modules>
 
     <groupId>com.ismyself</groupId>
@@ -14,20 +16,21 @@
     <description>
         所有项目父工程
     </description>
-<!--    <parent>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
-<!--        <version>2.1.4.RELEASE</version>-->
-<!--    </parent>-->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
-        <spring.cloud.version>Finchley.SR4</spring.cloud.version>
+        <spring.cloud.version>Greenwich.SR1</spring.cloud.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <hutool.version>5.5.6</hutool.version>
-        <fastjson.version>1.2.72</fastjson.version>
+        <fastjson.version>1.2.75</fastjson.version>
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
 
@@ -44,7 +47,6 @@
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-codec>1.11</commons-codec>
-        <feign-okhttp.version>10.6.0</feign-okhttp.version>
         <java-jwt.version>3.6.0</java-jwt.version>
         <powermock.version>2.0.9</powermock.version>
         <maven-surefire-plugins.version>2.12.4</maven-surefire-plugins.version>
@@ -181,12 +183,6 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${feign-okhttp.version}</version>
             </dependency>
 
             <dependency>

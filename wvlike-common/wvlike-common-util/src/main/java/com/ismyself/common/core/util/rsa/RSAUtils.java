@@ -1,4 +1,4 @@
-package com.ismyself.common.core.utils;
+package com.ismyself.common.core.util.rsa;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.ArrayUtil;

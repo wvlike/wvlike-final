@@ -1,4 +1,4 @@
-package com.ismyself.common.base.finalshell;
+package com.ismyself.common.core.util.finalshell;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
