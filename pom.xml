@@ -6,6 +6,8 @@
     <modules>
         <module>wvlike-common</module>
         <module>wvlike-gateway</module>
+        <module>wvlike-eureka-server</module>
+        <module>wvlike-service</module>
 
     </modules>
 

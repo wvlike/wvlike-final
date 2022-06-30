@@ -1,8 +1,5 @@
 package com.ismyself.common.base.result;
 
-import lombok.Builder;
-import lombok.Data;
-
 /**
  * package com.ismyself.demo.common;
  *
@@ -10,27 +7,63 @@ import lombok.Data;
  * @create 2021-01-24  19:05
  * @description：
  */
-@Data
-@Builder
+
 public class ResultDTO {
 
     private Integer code;
     private String message;
     private Object data;
 
-    public static ResultDTO success(){
-        return ResultDTO.builder().code(ResultCode.SUCCESS.getCode()).message(ResultCode.SUCCESS.getMessge()).data(null).build();
+    public static ResultDTO success() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(ResultCode.SUCCESS.getCode());
+        resultDTO.setMessage(ResultCode.SUCCESS.getMessge());
+        return resultDTO;
     }
 
-    public static ResultDTO success(Object o){
-        return ResultDTO.builder().code(ResultCode.SUCCESS.getCode()).message(ResultCode.SUCCESS.getMessge()).data(o).build();
+    public static ResultDTO success(Object o) {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(ResultCode.SUCCESS.getCode());
+        resultDTO.setMessage(ResultCode.SUCCESS.getMessge());
+        resultDTO.setData(o);
+        return resultDTO;
     }
 
-    public static ResultDTO fail(){
-        return ResultDTO.builder().code(ResultCode.FAIL.getCode()).message(ResultCode.FAIL.getMessge()).data(null).build();
+    public static ResultDTO fail() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(ResultCode.FAIL.getCode());
+        resultDTO.setMessage(ResultCode.FAIL.getMessge());
+        return resultDTO;
     }
 
-    public static ResultDTO fail(String message){
-        return ResultDTO.builder().code(ResultCode.FAIL.getCode()).message(message).data(null).build();
+    public static ResultDTO fail(String message) {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(ResultCode.FAIL.getCode());
+        resultDTO.setMessage(message);
+        return resultDTO;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 }
