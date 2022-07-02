@@ -21,7 +21,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableDiscoveryClient          //各种注册中心
 //@EnableApolloConfig("application.yml")
-@EnableFeignClients             //feign
+@EnableFeignClients(basePackages = {"com.wvlike.facade.msg"})             //feign
 @EnableMethodCache(basePackages = "com.company.mypackage")      //jetcache
 @EnableCreateCacheAnnotation    //jetcache
 @EnableCircuitBreaker           //hystix

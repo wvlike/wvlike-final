@@ -27,7 +27,7 @@ public class TestController {
         return ResultDTO.success(testService.test());
     }
 
-    @PostMapping("/facade/success")
+    @PostMapping("/success/test")
     public ResultDTO<String> testFacade() {
         return ResultDTO.success(testService.testFacade());
     }

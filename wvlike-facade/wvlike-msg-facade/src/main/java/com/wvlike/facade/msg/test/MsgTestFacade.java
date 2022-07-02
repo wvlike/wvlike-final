@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @description：
  */
 @FeignClient(value = "wvlike-msg")
-@RequestMapping("/test")
+@RequestMapping("/msg/test")
 public interface MsgTestFacade {
 
     @PostMapping("/success")

@@ -11,17 +11,17 @@ spring:
   application:
     name: wvlike-user
   datasource:
-    className: "com.alibaba.druid.pool.DruidDataSource"
-    dataSourceMap:
-      driver-class-name: "com.mysql.cj.jdbc.Driver"
-      url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
-      username: "root"
-      password: "root"
+#    className: "com.alibaba.druid.pool.DruidDataSource"
+#    dataSourceMap:
+#      driver-class-name: "com.mysql.cj.jdbc.Driver"
+#      url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+#      username: "root"
+#      password: "root"
 
-#    driver-class-name: "com.mysql.cj.jdbc.Driver"
-#    url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
-#    username: "root"
-#    password: "root"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    url: "jdbc:mysql://localhost/txw?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+    username: "root"
+    password: "root"
 
   #redis配置
   redis:
@@ -83,6 +83,14 @@ hystrix:
 #timeoutInMilliseconds：feign连接超时时间
 #cluster-name：Elasticsearch的集群节点名称，这里需要和Elasticsearch集群节点名称保持一致
 #cluster-nodes：Elasticsearch节点通信地址
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: error
 
 
 #最大连接数

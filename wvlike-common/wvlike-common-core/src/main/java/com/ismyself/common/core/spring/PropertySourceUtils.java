@@ -5,7 +5,6 @@ import org.springframework.core.env.*;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +48,6 @@ public class PropertySourceUtils {
         return (List<String>) location.get(SCAN_PACKGES);
     }
 
-    @NotNull
     private static Map<String, Object> prepareOrGetInnerLocation(ConfigurableEnvironment environment) {
         return prepareOrGetMapSource(environment, INNER_PROPERTIES ,MutablePropertySources::addLast);
     }

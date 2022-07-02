@@ -3,8 +3,8 @@ server:
   servlet:
     context-path: /msg
 spring:
-  profiles:
-    active: local
+#  profiles:
+#    active: local
   data:
     mongodb:
       uri: mongodb://localhost:27017/mydb
@@ -77,6 +77,13 @@ hystrix:
 #cluster-name：Elasticsearch的集群节点名称，这里需要和Elasticsearch集群节点名称保持一致
 #cluster-nodes：Elasticsearch节点通信地址
 
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: info
 
 #最大连接数
 http:
