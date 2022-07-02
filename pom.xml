@@ -8,6 +8,7 @@
         <module>wvlike-gateway</module>
         <module>wvlike-eureka-server</module>
         <module>wvlike-service</module>
+        <module>wvlike-facade</module>
 
     </modules>
 

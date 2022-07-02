@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wvlike-user-service</artifactId>
+    <artifactId>wvlike-msg-service</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -39,6 +39,7 @@
             <artifactId>wvlike-common-base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>com.ismyself</groupId>
             <artifactId>wvlike-msg-facade</artifactId>
@@ -288,5 +289,6 @@
         </dependency>
 
     </dependencies>
+
 
 </project>

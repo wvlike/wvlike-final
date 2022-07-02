@@ -8,36 +8,36 @@ package com.ismyself.common.base.result;
  * @description：
  */
 
-public class ResultDTO {
+public class ResultDTO<T> {
 
     private Integer code;
     private String message;
-    private Object data;
+    private T data;
 
-    public static ResultDTO success() {
-        ResultDTO resultDTO = new ResultDTO();
+    public static <T> ResultDTO<T> success() {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
         resultDTO.setCode(ResultCode.SUCCESS.getCode());
         resultDTO.setMessage(ResultCode.SUCCESS.getMessge());
         return resultDTO;
     }
 
-    public static ResultDTO success(Object o) {
-        ResultDTO resultDTO = new ResultDTO();
+    public static <T> ResultDTO<T> success(T t) {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
         resultDTO.setCode(ResultCode.SUCCESS.getCode());
         resultDTO.setMessage(ResultCode.SUCCESS.getMessge());
-        resultDTO.setData(o);
+        resultDTO.setData(t);
         return resultDTO;
     }
 
-    public static ResultDTO fail() {
-        ResultDTO resultDTO = new ResultDTO();
+    public static <T> ResultDTO<T> fail() {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
         resultDTO.setCode(ResultCode.FAIL.getCode());
         resultDTO.setMessage(ResultCode.FAIL.getMessge());
         return resultDTO;
     }
 
-    public static ResultDTO fail(String message) {
-        ResultDTO resultDTO = new ResultDTO();
+    public static <T> ResultDTO<T> fail(String message) {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
         resultDTO.setCode(ResultCode.FAIL.getCode());
         resultDTO.setMessage(message);
         return resultDTO;
@@ -59,11 +59,11 @@ public class ResultDTO {
         this.message = message;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

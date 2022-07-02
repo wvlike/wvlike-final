@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>wvlike-user-service</module>
-        <module>wvlike-msg-service</module>
+        <module>wvlike-user-facade</module>
+        <module>wvlike-msg-facade</module>
     </modules>
-    <artifactId>wvlike-service</artifactId>
+    <artifactId>wvlike-facade</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
