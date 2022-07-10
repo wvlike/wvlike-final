@@ -43,6 +43,13 @@ public class ResultDTO<T> {
         return resultDTO;
     }
 
+    public static <T> ResultDTO<T> fail(ResultCode resultCode) {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
+        resultDTO.setCode(resultCode.getCode());
+        resultDTO.setMessage(resultCode.getMessge());
+        return resultDTO;
+    }
+
     public Integer getCode() {
         return code;
     }

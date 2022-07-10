@@ -11,7 +11,12 @@ public enum ResultCode {
 
     SUCCESS(100, "success"),
     FAIL(-1,"fail"),
-    ERRORPARAM(101,"error_param")
+    ERROR_PARAM(101,"error_param"),
+
+    FALLBACK_COMMON(1000,"fallback_common"),
+
+
+
     ;
 
     private Integer code;

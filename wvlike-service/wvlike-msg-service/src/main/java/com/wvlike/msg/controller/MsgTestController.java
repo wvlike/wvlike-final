@@ -2,6 +2,7 @@ package com.wvlike.msg.controller;
 
 import com.ismyself.common.base.result.ResultDTO;
 import com.wvlike.facade.msg.test.MsgTestFacade;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/test")
+@Primary
 public class MsgTestController implements MsgTestFacade {
 
     @Override
     @PostMapping("/success")
     public ResultDTO<String> test() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+
+        }
         return ResultDTO.success("test-success");
     }
 

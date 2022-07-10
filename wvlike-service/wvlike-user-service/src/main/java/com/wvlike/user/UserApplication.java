@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -17,12 +18,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @create 2022-06-30  20:41
  * @description：
  */
+@ComponentScan("com.wvlike")
 @ServletComponentScan("com.wvlike")   //让@WebFilter等servlet相关注解生效
 @SpringBootApplication
 @EnableDiscoveryClient          //各种注册中心
 //@EnableApolloConfig("application.yml")
-@EnableFeignClients(basePackages = {"com.wvlike.facade.msg"})             //feign
-@EnableMethodCache(basePackages = "com.company.mypackage")      //jetcache
+@EnableFeignClients(basePackages = {"com.wvlike"})             //feign
+@EnableMethodCache(basePackages = "com.wvlike")      //jetcache
 @EnableCreateCacheAnnotation    //jetcache
 @EnableCircuitBreaker           //hystix
 @EnableScheduling               //开启定时任务
