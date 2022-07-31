@@ -78,6 +78,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- apollo配置 -->
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>1.9.2</version>
+            </dependency>
+
             <!--hutool-->
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -215,62 +222,8 @@
             </dependency>
 
 
-            <!--系统内部包管理-->
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-common-base</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-common-util</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-common-core</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-job-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-product-facade</artifactId>
-                <version>${flow-product-facade.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-demo-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-msg-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-user-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-bizplat-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-id-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kingdee</groupId>
-                <artifactId>flow-statistics-facade</artifactId>
-                <version>${finace-cloud}</version>
-            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 </project>

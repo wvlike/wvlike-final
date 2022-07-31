@@ -6,6 +6,9 @@ spring:
 eureka:
   instance:
     hostname: localhost
+    preferIpAddress: true
+    status-page-url-path: /info
+    health-check-url-path: /health
   client:
     register-with-eureka: false   #是否将自己注册到eureka中
     fetch-registry: false         #是否从eureka中获取信息

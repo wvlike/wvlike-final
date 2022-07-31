@@ -1,6 +1,7 @@
 package com.wvlike.user.controller.test;
 
 import com.ismyself.common.base.result.ResultDTO;
+import com.wvlike.user.properties.test.MyApolloProperties;
 import com.wvlike.user.service.test.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,22 @@ public class TestController {
         long start = System.currentTimeMillis();
         String result = testService.testFacade();
         log.info("TestController testFacade rt:{} ms", (System.currentTimeMillis() - start));
+        return ResultDTO.success(result);
+    }
+
+    @PostMapping("/apollo/success")
+    public ResultDTO<String> testApollo() {
+        long start = System.currentTimeMillis();
+        String result = testService.testApollo();
+        log.info("TestController testApollo rt:{} ms", (System.currentTimeMillis() - start));
+        return ResultDTO.success(result);
+    }
+
+    @PostMapping("/apollo/bean/success")
+    public ResultDTO<MyApolloProperties> testBean() {
+        long start = System.currentTimeMillis();
+        MyApolloProperties result = testService.testBean();
+        log.info("TestController testApollo rt:{} ms", (System.currentTimeMillis() - start));
         return ResultDTO.success(result);
     }
 

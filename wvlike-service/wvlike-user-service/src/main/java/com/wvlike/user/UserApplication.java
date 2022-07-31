@@ -2,6 +2,7 @@ package com.wvlike.user;
 
 import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 import com.alicp.jetcache.anno.config.EnableMethodCache;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -22,7 +23,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @ServletComponentScan("com.wvlike")   //让@WebFilter等servlet相关注解生效
 @SpringBootApplication
 @EnableDiscoveryClient          //各种注册中心
-//@EnableApolloConfig("application.yml")
+@EnableApolloConfig("application.yml")
 @EnableFeignClients(basePackages = {"com.wvlike"})             //feign
 @EnableMethodCache(basePackages = "com.wvlike")      //jetcache
 @EnableCreateCacheAnnotation    //jetcache
