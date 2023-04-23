@@ -60,6 +60,109 @@ public class MyLeetCodeTest {
     }
 
     /**
+     * 、
+     * 28. 找出字符串中第一个匹配项的下标
+     * https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
+     *
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public int strStr(String haystack, String needle) {
+        // todo
+        return 0;
+    }
+
+    /**
+     * 剑指 Offer 58 - II. 左旋转字符串
+     * https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
+     *
+     * @param s
+     * @param n
+     * @return
+     */
+    public String reverseLeftWords(String s, int n) {
+        char[] chars = s.toCharArray();
+        reverse(chars, 0, chars.length - 1);
+        reverse(chars, 0, chars.length - 1 - n);
+        reverse(chars, chars.length - n, chars.length - 1);
+        return new String(chars);
+    }
+
+    public void reverse(char[] chars, int left, int right) {
+        while (left < right) {
+            chars[left] ^= chars[right];
+            chars[right] ^= chars[left];
+            chars[left] ^= chars[right];
+            left++;
+            right--;
+        }
+    }
+
+    /**
+     * 剑指 Offer 05. 替换空格
+     * https://leetcode.cn/problems/ti-huan-kong-ge-lcof/
+     *
+     * @param s
+     * @return
+     */
+    public String replaceSpace(String s) {
+        if (s != null && s.length() > 0) {
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < s.length() - 1; i++) {
+                char c = s.charAt(i);
+                if (c == ' ') {
+                    sb.append("%20");
+                } else {
+                    sb.append(c);
+                }
+            }
+            return sb.toString();
+        }
+        return s;
+    }
+
+    /**
+     * 541. 反转字符串 II
+     * https://leetcode.cn/problems/reverse-string-ii/
+     *
+     * @param s
+     * @param k
+     * @return
+     */
+    public String reverseStr(String s, int k) {
+        char[] ch = s.toCharArray();
+        for (int i = 0; i < ch.length; i += 2 * k) {
+            int start = i;
+            //这里是判断尾数够不够k个来取决end指针的位置
+            int end = Math.min(ch.length - 1, start + k - 1);
+            //用异或运算反转
+            while (start < end) {
+                ch[start] ^= ch[end];
+                ch[end] ^= ch[start];
+                ch[start] ^= ch[end];
+                start++;
+                end--;
+            }
+        }
+        return new String(ch);
+    }
+
+    /**
+     * 344. 反转字符串
+     * https://leetcode.cn/problems/reverse-string/
+     *
+     * @param s
+     */
+    public void reverseString(char[] s) {
+        for (int l = 0, r = s.length - 1; l < r; l++, r--) {
+            char temp = s[l];
+            s[l] = s[r];
+            s[r] = temp;
+        }
+    }
+
+    /**
      * 15. 三数之和
      * https://leetcode.cn/problems/3sum/
      *

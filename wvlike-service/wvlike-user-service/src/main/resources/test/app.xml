@@ -1,0 +1,9 @@
+<app>
+    <!--    <test>111111</test>-->
+    <obj id="u1">
+        <test>111111</test>
+    </obj>
+    <obj id="u2">
+        <test>222222</test>
+    </obj>
+</app>

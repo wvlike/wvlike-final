@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class CommonTest {
 
     public static void main(String[] args) throws InterruptedException {
-//        test00();
+        test00();
 
 //        test01();
 
@@ -33,7 +33,7 @@ public class CommonTest {
 
 //        test06();
 
-        test07();
+//        test07();
 
     }
 
@@ -182,12 +182,12 @@ public class CommonTest {
 //所以在这里使用startWith补齐
         Observable<ArrayList<Long>> arrayListObservable
                 = Observable
-                .defer(() -> Observable.interval(100, TimeUnit.MILLISECONDS).startWith(1L)
+                .defer(() -> Observable.interval(100, TimeUnit.MILLISECONDS).startWith(0L)
                         .window(1000, TimeUnit.MILLISECONDS)
                         .flatMap(longObservable ->
                                 longObservable.reduce(new ArrayList<Long>(), (l1, l2) -> {
                                     l1.add(l2);
-                                    System.out.println(l2);
+                                    System.out.println(l1 + "--" + l2);
                                     return l1;
                                 }))
                         .startWith(startWith));
@@ -197,38 +197,43 @@ public class CommonTest {
 
     private static void test00() throws InterruptedException {
 
+        Observable.interval(100 , TimeUnit.MILLISECONDS)
+                .window(1 , TimeUnit.SECONDS)
+                .subscribe(windowObser ->{
+                    System.out.println("============");
+                    windowObser.subscribe(System.out::println);
+                });
+
+
 //        Observable<Long> arrayListObservable
 //                = Observable
 //                .defer(() -> Observable.interval(100, TimeUnit.MILLISECONDS).startWith(0L)
 //                        .window(1000, TimeUnit.MILLISECONDS)
-//                        .flatMap(longObservable -> longObservable.reduce((l1, l2) ->
-//                                {
-//                                    System.out.println("l1 = " + l1);
-//                                    System.out.println("l2 = " + l2);
-//                                    System.out.println("======================================");
-//                                    return l2;
-//                                }
-//                        ))
+//                        .flatMap(longObservable -> longObservable.doOnEach(e -> {
+//                            System.out.println(e.getValue());
+//                            System.out.println("+++++++++++++++++");
+//                                })
+//                        )
 //                );
 //        arrayListObservable.subscribe(System.out::println);
-//
-//        TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
 
-        Observable.range(0, 10)
-                .scan((integer, integer2) -> {
-                    System.out.println("integer = " + integer);
-                    System.out.println("integer2 = " + integer2);
-                    return integer2;
-                })
-                .subscribe(System.out::println);
-        System.out.println("===========================");
-        Observable.range(0, 10)
-                .reduce((integer, integer2) -> {
-                    System.out.println("integer = " + integer);
-                    System.out.println("integer2 = " + integer2);
-                    return integer2;
-                })
-                .subscribe(System.out::println);
+        TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+
+//        Observable.range(0, 10)
+//                .scan((integer, integer2) -> {
+//                    System.out.println("integer = " + integer);
+//                    System.out.println("integer2 = " + integer2);
+//                    return integer2;
+//                })
+//                .subscribe(System.out::println);
+//        System.out.println("===========================");
+//        Observable.range(0, 10)
+//                .reduce((integer, integer2) -> {
+//                    System.out.println("integer = " + integer);
+//                    System.out.println("integer2 = " + integer2);
+//                    return integer2;
+//                })
+//                .subscribe(System.out::println);
     }
 
 
