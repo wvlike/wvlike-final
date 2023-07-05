@@ -1,6 +1,6 @@
 package com.wvlike.user.agent;
 
-import javassist.*;
+import org.apache.ibatis.javassist.*;
 
 import java.io.ByteArrayInputStream;
 import java.lang.instrument.ClassFileTransformer;
