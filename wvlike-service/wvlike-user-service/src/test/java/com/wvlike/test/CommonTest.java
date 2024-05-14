@@ -1,12 +1,13 @@
 package com.wvlike.test;
 
+import com.netflix.hystrix.metric.HystrixCommandExecutionStarted;
 import org.assertj.core.util.Lists;
+import org.springframework.util.StopWatch;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.functions.Action1;
-import rx.subjects.BehaviorSubject;
-import rx.subjects.ReplaySubject;
+import rx.subjects.*;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class CommonTest {
 
     public static void main(String[] args) throws InterruptedException {
-        test00();
+//        test00();
 
 //        test01();
 
@@ -34,6 +35,30 @@ public class CommonTest {
 //        test06();
 
 //        test07();
+
+//        test08();
+
+        test09();
+
+    }
+
+
+    public static void test09() {
+        StopWatch stopWatch = new StopWatch("testtestsetse");
+
+        stopWatch.start("121346546");
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+
+        }
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
+    }
+    public static void test08() {
+        Subject<HystrixCommandExecutionStarted, HystrixCommandExecutionStarted> writeOnlySubject = new SerializedSubject<>(PublishSubject.create());
+        Observable<HystrixCommandExecutionStarted> readOnlyStream = writeOnlySubject.share();
+        System.out.println(111111);
 
     }
 
@@ -197,9 +222,9 @@ public class CommonTest {
 
     private static void test00() throws InterruptedException {
 
-        Observable.interval(100 , TimeUnit.MILLISECONDS)
-                .window(1 , TimeUnit.SECONDS)
-                .subscribe(windowObser ->{
+        Observable.interval(100, TimeUnit.MILLISECONDS)
+                .window(1, TimeUnit.SECONDS)
+                .subscribe(windowObser -> {
                     System.out.println("============");
                     windowObser.subscribe(System.out::println);
                 });

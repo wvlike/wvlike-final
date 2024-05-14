@@ -55,6 +55,11 @@
             <artifactId>wvlike-common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.ismyself</groupId>
+            <artifactId>wvlike-common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!-- Druid 数据连接池依赖 -->
         <!-- mysql -->
@@ -296,6 +301,18 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ismyself</groupId>
+            <artifactId>wvlike-user-facade</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
