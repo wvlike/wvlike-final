@@ -1,0 +1,38 @@
+@startuml
+participant Participant  as Foo  order 10
+participant Participant111  [
+                            =Title
+                            ----
+                            ""打算""
+                        ]
+
+participant Participant1111  [
+                            =Title
+                            ----
+                            ""打算""
+                        ]
+
+actor       Actor       as Foo1 order 20 #99FF99
+boundary    Boundary    as Foo2 #f88964
+control     Control     as Foo3
+entity      Entity      as Foo4
+database    Database    as Foo5
+collections Collections as Foo6
+queue       Queue       as Foo7
+database nihaoooooo #456134
+
+title Example Title
+
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo --> Foo5 : **To database
+
+newpage A title for the\nlast page
+
+Foo -> Foo6 : To collections
+Foo -> Foo7: To queue
+Foo -> nihaoooooo
+
+@enduml

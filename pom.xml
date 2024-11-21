@@ -57,6 +57,8 @@
         <finace-cloud>1.0-SNAPSHOT</finace-cloud>
         <flow-product-facade.version>1.1-SNAPSHOT</flow-product-facade.version>
         <reflections.version>0.9.11</reflections.version>
+
+        <easyexcel.version>3.3.4</easyexcel.version>
     </properties>
 
     <dependencyManagement>

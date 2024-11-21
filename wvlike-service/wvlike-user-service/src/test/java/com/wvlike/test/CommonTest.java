@@ -6,7 +6,6 @@ import org.springframework.util.StopWatch;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
-import rx.functions.Action1;
 import rx.subjects.*;
 
 import java.util.ArrayList;
@@ -38,7 +37,13 @@ public class CommonTest {
 
 //        test08();
 
-        test09();
+//        test09();
+
+        test10();
+
+    }
+
+    public static void test10() {
 
     }
 
@@ -55,6 +60,7 @@ public class CommonTest {
         stopWatch.stop();
         System.out.println(stopWatch.prettyPrint());
     }
+
     public static void test08() {
         Subject<HystrixCommandExecutionStarted, HystrixCommandExecutionStarted> writeOnlySubject = new SerializedSubject<>(PublishSubject.create());
         Observable<HystrixCommandExecutionStarted> readOnlyStream = writeOnlySubject.share();
