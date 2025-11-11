@@ -1,5 +1,7 @@
 package com.wvlike.user.leetcode;
 
+import com.google.common.collect.Lists;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -53,11 +55,83 @@ public class MyLeetCodeTest {
 
 //        List<Integer> spiralOrder = test.spiralOrder(ints);
 //        System.out.println(spiralOrder);
-        ListNode listNode = test.getNode(9);
-        System.out.println(test.parseNode(listNode));
-        ListNode swapPairs = test.swapPairs(listNode);
-        System.out.println(test.parseNode(swapPairs));
+//        ListNode listNode = test.getNode(9);
+//        System.out.println(test.parseNode(listNode));
+//        ListNode swapPairs = test.swapPairs(listNode);
+//        System.out.println(test.parseNode(swapPairs));
+
+
+        System.out.println(test.finalPositionOfSnake(3, Lists.newArrayList("DOWN", "RIGHT", "UP")));
     }
+
+    /**
+     * 3248. 矩阵中的蛇
+     * https://leetcode.cn/problems/snake-in-matrix/
+     *
+     * @param n
+     * @param commands
+     * @return
+     */
+    public int finalPositionOfSnake(int n, List<String> commands) {
+        int x = 1;
+        int y = 1;
+        for (String command : commands) {
+            switch (command) {
+                case "UP":
+                    if (y - 1 >= 0) {
+                        y--;
+                    }
+                    break;
+                case "DOWN":
+                    if (y + 1 <= n) {
+                        y++;
+                    }
+                    break;
+                case "LEFT":
+                    if (x - 1 >= 0) {
+                        x--;
+                    }
+                    break;
+                case "RIGHT":
+                    if (x + 1 <= n) {
+                        x++;
+                    }
+                    break;
+                default:
+            }
+        }
+        return n * y - n + x - 1;
+    }
+
+    /**
+     * 官方
+     *
+     * @param n
+     * @param commands
+     * @return
+     */
+    public int finalPositionOfSnake1(int n, List<String> commands) {
+        int ans = 0;
+        for (String command : commands) {
+            switch (command) {
+                case "UP":
+                    ans -= n;
+                    break;
+                case "DOWN":
+                    ans += n;
+                    break;
+                case "LEFT":
+                    --ans;
+                    break;
+                case "RIGHT":
+                    ++ans;
+                    break;
+                default:
+            }
+        }
+        return ans;
+    }
+
 
     /**
      * 、

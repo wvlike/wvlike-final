@@ -1,7 +1,11 @@
 package com.wvlike.test;
 
+import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.metric.HystrixCommandExecutionStarted;
+import com.wvlike.user.dto.UserInfoDTO;
+import com.wvlike.user.dto.UserSimpleInfoDTO;
 import org.assertj.core.util.Lists;
+import org.springframework.beans.BeanUtils;
 import org.springframework.util.StopWatch;
 import rx.Observable;
 import rx.Subscriber;
@@ -39,14 +43,38 @@ public class CommonTest {
 
 //        test09();
 
-        test10();
+//        test10();
 
+        test11();
+
+    }
+
+    public static void test11() {
+        int a = 1 * 3;
+        int b = 7;
+        int c = 3 * 3;
+        System.out.println(a & 1);
+        System.out.println(b & 1);
+        System.out.println(c & 1);
+        System.out.println(100 >>> 1);
     }
 
     public static void test10() {
+        UserInfoDTO userInfo1 = UserInfoDTO.builder()
+                .name("张三")
+                .address("南山区")
+                .isChange(true)
+                .build();
 
+        UserSimpleInfoDTO userInfo2 = UserSimpleInfoDTO.builder()
+                .name("李四")
+                .address("宝安区")
+                .age(11)
+                .build();
+
+        BeanUtils.copyProperties(userInfo1, userInfo2);
+        System.out.println(JSON.toJSONString(userInfo2));
     }
-
 
     public static void test09() {
         StopWatch stopWatch = new StopWatch("testtestsetse");
