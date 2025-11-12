@@ -118,7 +118,7 @@
                             <Can-Set-Native-Method-Prefix>false</Can-Set-Native-Method-Prefix>
 
                             <!--指定agentmain方法的入口类（动态加载时将会调用 agentmain方法）-->
-                            <Agent-Class>com.wvlike.agent.attach.AttachAgent</Agent-Class>
+<!--                            <Agent-Class>com.wvlike.agent.attach.AttachAgent</Agent-Class>-->
 
                             <!--如果不设置这个 很可能各种类找不到或者 报错com.sun.tools.attach.AgentLoadException: Agent JAR not found or no Agent-Class attribute-->
                             <!--<Boot-Class-Path>study-agent-0.0.1-SNAPSHOT-jar-with-dependencies.jar</Boot-Class-Path>-->

@@ -16,7 +16,7 @@ public class AttachAgentTest {
 
         // 根据进程id 与目标jvm程序建立 socket连接
         ByteBuddyAgent.attach(new File("D:\\workspace\\wvlike-final\\wvlike-service\\wvlike-agent-service\\target\\wvlike-agent-service-1.0-SNAPSHOT-jar-with-dependencies.jar"),
-                "17668");
+                "31568");
 
         Thread.sleep(10000);
 

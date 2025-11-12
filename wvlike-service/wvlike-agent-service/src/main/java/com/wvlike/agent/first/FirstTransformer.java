@@ -14,13 +14,12 @@ import java.security.ProtectionDomain;
  */
 public class FirstTransformer implements ClassFileTransformer {
 
+
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                             ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         //只修改自定义的User类
-        System.out.println("className:" + className);
-
-        if (className.equals("com/wvlike/agent/User")) {
+        if (className.equals("com/wvlike/agent/common/User")) {
             System.out.println("开始修改User类");
             try {
                 ClassPool classPool = ClassPool.getDefault();
@@ -38,10 +37,11 @@ public class FirstTransformer implements ClassFileTransformer {
                 //重写toString方法，将sex属性加入返回结果中。
                 CtMethod method = clazz.getDeclaredMethod("toString");
                 method.setBody("return \"User{\" +\n" +
-                        "                \"name='\" + name + '\\',' +\n" +
-                        "                \"age=\" + age + \",\\n\" +\n" +
-                        "                \"sex='\" + sex + '\\'' +\n" +
-                        "                '}';");
+                        "\"name='\" + this.name + '\\'' + \", \" +\n" +
+                        "\"age=\" + age + \", \" +\n" +
+                        "\"sex='\" + sex + '\\'' +\n" +
+                        "'}';"
+                );
                 return clazz.toBytecode();
             } catch (Exception e) {
                 e.printStackTrace();

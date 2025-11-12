@@ -1,6 +1,9 @@
 package com.wvlike.agent.attach;
 
-import javassist.*;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtMethod;
+import javassist.LoaderClassPath;
 
 import java.io.ByteArrayInputStream;
 import java.lang.instrument.ClassFileTransformer;
@@ -34,8 +37,8 @@ public class AttachTransformer implements ClassFileTransformer {
                 CtMethod toStringMethod = clazz.getDeclaredMethod("toString");
                 toStringMethod.setBody(
                         "{ return \"User{\" +\n" +
-                                "\"name='\" + this.name + '\\'' + \",\" +\n" +
-                                "\"age=\" + this.age + \",\" +\n" +
+                                "\"name='\" + this.name + '\\'' + \", \" +\n" +
+                                "\"age=\" + this.age + \", \" +\n" +
                                 "\"sex='\" + com.wvlike.agent.MetadataManager.getSex(this) + '\\'\' +\n" +
                                 "\"}\"; }"
                 );
