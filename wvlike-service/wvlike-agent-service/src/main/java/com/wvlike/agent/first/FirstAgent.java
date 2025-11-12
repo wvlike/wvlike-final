@@ -1,16 +1,18 @@
-package com.wvlike.user.agent;
+package com.wvlike.agent.first;
 
 
 import java.lang.instrument.Instrumentation;
 
 /**
- * @Date: 2023/4/19
+ * @Date: 2025/11/10
  * @Author: tuxinwen
- * @Description:
+ * @Description: 静态Agent启动类
  */
 public class FirstAgent {
+
     public static void premain(String agentArgs, Instrumentation inst) {
         System.out.println("FirstAgent is Start.");
         inst.addTransformer(new FirstTransformer());
     }
+
 }

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ismyself</groupId>
+        <artifactId>wvlike-service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>wvlike-agent-service</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.24.1-GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.14.13</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <!--解决 什么什么 goal编译失败的方法-->
+                <!--				https://stackoverflow.com/questions/42525139/maven-build-compilation-error-failed-to-execute-goal-org-apache-maven-plugins-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <!--					<release>8</release>-->
+                </configuration>
+            </plugin>
+
+            <!-- Maven Assembly Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <!-- 将所有的依赖全部打包进jar -->
+<!--                    <descriptorRefs>-->
+<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--                    </descriptorRefs>-->
+
+                    <!-- 2. 仅打包核心目录：target/classes（编译后类+复制的依赖），其他目录一律不打包 -->
+<!--                    <fileSets>-->
+<!--                        <fileSet>-->
+<!--                            <directory>${project.build.outputDirectory}</directory> &lt;!&ndash; 只处理target/classes &ndash;&gt;-->
+<!--                            <outputDirectory>/</outputDirectory> &lt;!&ndash; 放JAR根目录 &ndash;&gt;-->
+<!--                            <includes>-->
+<!--                                <include>**/*</include> &lt;!&ndash; 先明确包含所有内容 &ndash;&gt;-->
+<!--                            </includes>-->
+<!--                            <excludes>-->
+<!--                                &lt;!&ndash; 重点：绝对路径排除（相对于target/classes），必须和实际包结构一致！ &ndash;&gt;-->
+<!--                                <exclude>**/com/wvlike/agent/first/**/*</exclude> &lt;!&ndash; 加/*确保子文件也排除 &ndash;&gt;-->
+<!--                                <exclude>**/com/wvlike/agent/test/**/*</exclude>-->
+<!--                                <exclude>logs/**/*</exclude>-->
+<!--                                <exclude>**/*.tmp</exclude>-->
+<!--                            </excludes>-->
+<!--                            &lt;!&ndash; 强制启用筛选（关键！避免插件忽略exclude） &ndash;&gt;-->
+<!--                            <useDefaultExcludes>false</useDefaultExcludes>-->
+<!--                        </fileSet>-->
+<!--                    </fileSets>-->
+
+                    <!-- 使用自定义 assembly.xml -->
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+
+                    <!-- MainClass in mainfest make a executable jar -->
+                    <archive>
+
+                        <manifest>
+                            <!--							<mainClass>com.wvlike.agent.first.MysqlFieldCryptByExecuteBodyAgent</mainClass>-->
+                            <addClasspath>true</addClasspath>
+                            <!--							<premainClass>com.wvlike.agent.first.FirstAgent</premainClass>-->
+                        </manifest>
+                        <manifestEntries>
+                            <!--设置jar的作者和时间-->
+                            <Built-By>wvlike</Built-By>
+                            <Built-Date>${maven.build.timestamp}</Built-Date>
+
+                            <!--指定premain方法（静态加载时会调用的方法）的入口类，也就是说告诉jvm， premain方法在哪个类中-->
+                            <Premain-Class>com.wvlike.agent.first.FirstAgent</Premain-Class>
+
+                            <!--该属性设置为 true 时表示：允许已加载的类被重新转换（retransform）。这意味着 Java Agent 可以在运行时修改已经加载的类的字节码，而不需要重新启动应用或 JVM
+                            注意，如果此属性设置为 false 在执行main方法且设置-jaavaagent.jar时，将会执行抛出异常 ：java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+                            -->
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+
+                            <!--该属性设置为 true 时表示：允许 Java Agent 在运行时重新定义（也就是完全替换）已加载的类的字节码，这里我们没用到这个暂时设置成false,用到时在打开-->
+                            <Can-Redefine-Classes>false</Can-Redefine-Classes>
+
+                            <!--该属性设置为 true 时表示：允许 Java Agent 在运行时动态地为 JNI (Java Native Interface) 方法设置前缀。这项能力主要用于修改或拦截对本地方法的调用，这里我们没用到也设置为false -->
+                            <Can-Set-Native-Method-Prefix>false</Can-Set-Native-Method-Prefix>
+
+                            <!--指定agentmain方法的入口类（动态加载时将会调用 agentmain方法）-->
+                            <Agent-Class>com.wvlike.agent.attach.AttachAgent</Agent-Class>
+
+                            <!--如果不设置这个 很可能各种类找不到或者 报错com.sun.tools.attach.AgentLoadException: Agent JAR not found or no Agent-Class attribute-->
+                            <!--<Boot-Class-Path>study-agent-0.0.1-SNAPSHOT-jar-with-dependencies.jar</Boot-Class-Path>-->
+                        </manifestEntries>
+
+                        <!--如果不在pom中设置以上manifestEntries 这些信息，那么也可以在手动建一个MANIFEST.MF文件在 src/main/resources/META-INF/目录中，并将这些信息手动写进文件，
+                        然后让assembly打包时使用我们自己手写的这个MANIFEST.MF文件（如下的 manifestFile 标签就是告诉插件使用我们自己写的MANIFEST.MF文件），但是那样容易出错所以我们最好是在pom中设置然后让assembly插件帮我们生成 -->
+
+                        <!--<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>-->
+                    </archive>
+                </configuration>
+                <executions>
+                    <!-- 配置执行器 -->
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- 绑定到package命令的生命周期上 -->
+                        <phase>package</phase>
+                        <goals>
+                            <!-- 只运行一次 -->
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 复制依赖到 target/classes（让 JAR 包含所有依赖，适配 Agent） -->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <version>3.6.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy-dependencies</id>-->
+<!--                        <phase>prepare-package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-dependencies</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>-->
+<!--                            <includeScope>runtime</includeScope>-->
+<!--                            <overWriteIfNewer>true</overWriteIfNewer>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+
+        </plugins>
+    </build>
+</project>

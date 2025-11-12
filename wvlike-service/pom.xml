@@ -12,6 +12,7 @@
     <modules>
         <module>wvlike-user-service</module>
         <module>wvlike-msg-service</module>
+        <module>wvlike-agent-service</module>
     </modules>
     <artifactId>wvlike-service</artifactId>
 

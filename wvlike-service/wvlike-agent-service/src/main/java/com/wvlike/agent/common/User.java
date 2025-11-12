@@ -1,9 +1,9 @@
-package com.wvlike.user.agent;
+package com.wvlike.agent.common;
 
 import java.util.Objects;
 
 /**
- * @Date: 2023/4/19
+ * @Date: 2025/11/10
  * @Author: tuxinwen
  * @Description:
  */

@@ -1,6 +1,6 @@
-package com.wvlike.user.agent;
+package com.wvlike.agent.first;
 
-import org.apache.ibatis.javassist.*;
+import javassist.*;
 
 import java.io.ByteArrayInputStream;
 import java.lang.instrument.ClassFileTransformer;
@@ -8,15 +8,20 @@ import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 
 /**
- * @Date: 2023/4/19
+ * @Date: 2025/11/10
  * @Author: tuxinwen
  * @Description:
  */
 public class FirstTransformer implements ClassFileTransformer {
+
+    @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                             ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         //只修改自定义的User类
-        if (className.equals("User")) {
+        System.out.println("className:" + className);
+
+        if (className.equals("com/wvlike/agent/User")) {
+            System.out.println("开始修改User类");
             try {
                 ClassPool classPool = ClassPool.getDefault();
                 classPool.appendClassPath(new LoaderClassPath(loader));
@@ -34,6 +39,7 @@ public class FirstTransformer implements ClassFileTransformer {
                 CtMethod method = clazz.getDeclaredMethod("toString");
                 method.setBody("return \"User{\" +\n" +
                         "                \"name='\" + name + '\\',' +\n" +
+                        "                \"age=\" + age + \",\\n\" +\n" +
                         "                \"sex='\" + sex + '\\'' +\n" +
                         "                '}';");
                 return clazz.toBytecode();
