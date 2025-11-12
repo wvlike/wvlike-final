@@ -25,17 +25,33 @@
             <version>1.2.75</version>
         </dependency>
 
+        <!-- javassist：字节码修改（基于源码风格） -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.24.1-GA</version>
         </dependency>
 
+        <!-- byte-buddy：字节码修改（基于 fluent API） + 动态 attach -->
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy-agent</artifactId>
             <version>1.14.13</version>
         </dependency>
+
+        <!-- jna：提供通用 native 访问能力  -->
+        <!--        <dependency>-->
+        <!--            <groupId>net.java.dev.jna</groupId>-->
+        <!--            <artifactId>jna</artifactId>-->
+        <!--            <version>5.13.0</version>-->
+        <!--        </dependency>-->
+
+        <!-- jna-platform：提供 Windows/Linux/macOS 等平台专用封装（包括 Win32Exception, Kernel32, Psapi, Posix, MachO 等） -->
+        <!--        <dependency>-->
+        <!--            <groupId>net.java.dev.jna</groupId>-->
+        <!--            <artifactId>jna-platform</artifactId>-->
+        <!--            <version>5.13.0</version>-->
+        <!--        </dependency>-->
 
     </dependencies>
 
@@ -61,29 +77,29 @@
                 <version>3.6.0</version>
                 <configuration>
                     <!-- 将所有的依赖全部打包进jar -->
-<!--                    <descriptorRefs>-->
-<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--                    </descriptorRefs>-->
+                    <!--                    <descriptorRefs>-->
+                    <!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
+                    <!--                    </descriptorRefs>-->
 
                     <!-- 2. 仅打包核心目录：target/classes（编译后类+复制的依赖），其他目录一律不打包 -->
-<!--                    <fileSets>-->
-<!--                        <fileSet>-->
-<!--                            <directory>${project.build.outputDirectory}</directory> &lt;!&ndash; 只处理target/classes &ndash;&gt;-->
-<!--                            <outputDirectory>/</outputDirectory> &lt;!&ndash; 放JAR根目录 &ndash;&gt;-->
-<!--                            <includes>-->
-<!--                                <include>**/*</include> &lt;!&ndash; 先明确包含所有内容 &ndash;&gt;-->
-<!--                            </includes>-->
-<!--                            <excludes>-->
-<!--                                &lt;!&ndash; 重点：绝对路径排除（相对于target/classes），必须和实际包结构一致！ &ndash;&gt;-->
-<!--                                <exclude>**/com/wvlike/agent/first/**/*</exclude> &lt;!&ndash; 加/*确保子文件也排除 &ndash;&gt;-->
-<!--                                <exclude>**/com/wvlike/agent/test/**/*</exclude>-->
-<!--                                <exclude>logs/**/*</exclude>-->
-<!--                                <exclude>**/*.tmp</exclude>-->
-<!--                            </excludes>-->
-<!--                            &lt;!&ndash; 强制启用筛选（关键！避免插件忽略exclude） &ndash;&gt;-->
-<!--                            <useDefaultExcludes>false</useDefaultExcludes>-->
-<!--                        </fileSet>-->
-<!--                    </fileSets>-->
+                    <!--                    <fileSets>-->
+                    <!--                        <fileSet>-->
+                    <!--                            <directory>${project.build.outputDirectory}</directory> &lt;!&ndash; 只处理target/classes &ndash;&gt;-->
+                    <!--                            <outputDirectory>/</outputDirectory> &lt;!&ndash; 放JAR根目录 &ndash;&gt;-->
+                    <!--                            <includes>-->
+                    <!--                                <include>**/*</include> &lt;!&ndash; 先明确包含所有内容 &ndash;&gt;-->
+                    <!--                            </includes>-->
+                    <!--                            <excludes>-->
+                    <!--                                &lt;!&ndash; 重点：绝对路径排除（相对于target/classes），必须和实际包结构一致！ &ndash;&gt;-->
+                    <!--                                <exclude>**/com/wvlike/agent/first/**/*</exclude> &lt;!&ndash; 加/*确保子文件也排除 &ndash;&gt;-->
+                    <!--                                <exclude>**/com/wvlike/agent/test/**/*</exclude>-->
+                    <!--                                <exclude>logs/**/*</exclude>-->
+                    <!--                                <exclude>**/*.tmp</exclude>-->
+                    <!--                            </excludes>-->
+                    <!--                            &lt;!&ndash; 强制启用筛选（关键！避免插件忽略exclude） &ndash;&gt;-->
+                    <!--                            <useDefaultExcludes>false</useDefaultExcludes>-->
+                    <!--                        </fileSet>-->
+                    <!--                    </fileSets>-->
 
                     <!-- 使用自定义 assembly.xml -->
                     <descriptors>
@@ -145,25 +161,25 @@
             </plugin>
 
             <!-- 复制依赖到 target/classes（让 JAR 包含所有依赖，适配 Agent） -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-dependency-plugin</artifactId>-->
-<!--                <version>3.6.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>copy-dependencies</id>-->
-<!--                        <phase>prepare-package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>copy-dependencies</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>-->
-<!--                            <includeScope>runtime</includeScope>-->
-<!--                            <overWriteIfNewer>true</overWriteIfNewer>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-dependency-plugin</artifactId>-->
+            <!--                <version>3.6.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>copy-dependencies</id>-->
+            <!--                        <phase>prepare-package</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>copy-dependencies</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>-->
+            <!--                            <includeScope>runtime</includeScope>-->
+            <!--                            <overWriteIfNewer>true</overWriteIfNewer>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
 
 
         </plugins>

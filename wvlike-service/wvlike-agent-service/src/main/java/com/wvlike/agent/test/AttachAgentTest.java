@@ -18,6 +18,10 @@ public class AttachAgentTest {
         ByteBuddyAgent.attach(new File("D:\\workspace\\wvlike-final\\wvlike-service\\wvlike-agent-service\\target\\wvlike-agent-service-1.0-SNAPSHOT-jar-with-dependencies.jar"),
                 "31568");
 
+        // 使用下面 需要加 jna 和 jna-platform 依赖
+//        VirtualMachine vm = ForHotSpot.attach("27292");
+//        vm.loadAgent("D:\\workspace\\wvlike-final\\wvlike-service\\wvlike-agent-service\\target\\wvlike-agent-service-1.0-SNAPSHOT-jar-with-dependencies.jar");
+
         Thread.sleep(10000);
 
     }
