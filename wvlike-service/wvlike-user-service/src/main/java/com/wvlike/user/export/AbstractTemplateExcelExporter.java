@@ -3,7 +3,7 @@ package com.wvlike.user.export;
 import com.alibaba.excel.EasyExcel;
 import com.ismyself.common.base.exception.CommonException;
 import com.ismyself.common.base.result.ResultCode;
-import com.ismyself.common.core.util.FileUtils;
+import com.ismyself.common.core.util.file.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;
 

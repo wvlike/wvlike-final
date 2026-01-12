@@ -13,8 +13,8 @@
             <directory>${project.build.outputDirectory}</directory> <!-- target/classes -->
             <outputDirectory>/</outputDirectory>
             <excludes>
-                <exclude>**/com/wvlike/agent/attach/**</exclude>
-<!--                <exclude>**/com/wvlike/agent/first/**</exclude>-->
+<!--                <exclude>**/com/wvlike/agent/attach/**</exclude>-->
+                <exclude>**/com/wvlike/agent/first/**</exclude>
                 <exclude>**/com/wvlike/agent/test/**</exclude>
                 <exclude>logs/**</exclude>
                 <exclude>**/*.tmp</exclude>

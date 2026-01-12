@@ -1,4 +1,4 @@
-package com.ismyself.common.core.util;
+package com.ismyself.common.core.util.file;
 
 import cn.hutool.core.io.IoUtil;
 import com.ismyself.common.base.exception.CommonException;

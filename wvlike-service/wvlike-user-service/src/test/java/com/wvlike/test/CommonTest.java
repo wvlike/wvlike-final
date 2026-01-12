@@ -1,5 +1,7 @@
 package com.wvlike.test;
 
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.metric.HystrixCommandExecutionStarted;
 import com.wvlike.user.dto.UserInfoDTO;
@@ -13,6 +15,7 @@ import rx.Subscription;
 import rx.subjects.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -45,7 +48,33 @@ public class CommonTest {
 
 //        test10();
 
-        test11();
+        test12();
+
+    }
+
+    public static void test12() {
+        Date capitalGrantTime = new Date(1763518457000L);
+        Date approvalAcceptTime = DateUtil.parse("2025-11-18 11:10:00");
+        Date grantTime = DateUtil.parse("2025-11-18 11:18:00");
+        Long currentApplyId = 123L;
+        Long notifyApplyId = 456L;
+        Integer code;
+        if (DateUtil.between(capitalGrantTime, approvalAcceptTime, DateUnit.DAY) > 30) {
+            code = 0;
+        }
+        if (currentApplyId.equals(notifyApplyId)) {
+            code = 1;
+        }
+        if (grantTime != null && DateUtil.betweenDay(grantTime, capitalGrantTime, true) == 0) {
+            code = 1;
+        }
+        code = 0;
+
+        System.out.println(code);
+
+        System.out.println(111111111111L);
+        System.out.println(DateUtil.betweenDay(grantTime, capitalGrantTime, true) == 0);
+        System.out.println(DateUtil.between(grantTime, capitalGrantTime, DateUnit.DAY) == 0);
 
     }
 

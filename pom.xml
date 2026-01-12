@@ -57,8 +57,8 @@
         <finace-cloud>1.0-SNAPSHOT</finace-cloud>
         <flow-product-facade.version>1.1-SNAPSHOT</flow-product-facade.version>
         <reflections.version>0.9.11</reflections.version>
-
         <easyexcel.version>3.3.4</easyexcel.version>
+        <poi.version>4.1.2</poi.version>
     </properties>
 
     <dependencyManagement>
@@ -228,6 +228,24 @@
                 <artifactId>byte-buddy-agent</artifactId>
                 <version>1.14.13</version>
             </dependency>
+
+            <!-- poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

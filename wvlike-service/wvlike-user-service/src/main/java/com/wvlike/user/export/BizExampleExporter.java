@@ -8,7 +8,7 @@ import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy
 import com.google.common.collect.Lists;
 import com.ismyself.common.base.exception.CommonException;
 import com.ismyself.common.base.result.ResultCode;
-import com.ismyself.common.core.util.ZipUtils;
+import com.ismyself.common.core.util.file.ZipUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
