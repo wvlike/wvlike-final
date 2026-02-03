@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util.file.excel;
+package com.wvlike.common.util.file.excel;
 
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.BuiltinFormats;

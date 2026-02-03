@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util.file;
+package com.wvlike.common.util.file;
 
 
 import org.slf4j.Logger;

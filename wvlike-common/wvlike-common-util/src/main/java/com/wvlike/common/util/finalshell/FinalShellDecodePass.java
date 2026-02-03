@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util.finalshell;
+package com.wvlike.common.util.finalshell;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util;
+package com.wvlike.common.util;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

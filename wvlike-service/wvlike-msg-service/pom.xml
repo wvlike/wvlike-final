@@ -51,13 +51,11 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${durid-spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>${durid-spring-boot.version}</version>
         </dependency>
 
         <!--Druid Monitor监控-->
@@ -180,7 +178,6 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
         </dependency>
 
         <!--web起步依赖-->
@@ -225,21 +222,18 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
         </dependency>
 
         <!--lombok支持-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
         </dependency>
 
         <!--JSON-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.75</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
@@ -289,7 +283,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
-            <version>${easyexcel.version}</version>
         </dependency>
 
     </dependencies>

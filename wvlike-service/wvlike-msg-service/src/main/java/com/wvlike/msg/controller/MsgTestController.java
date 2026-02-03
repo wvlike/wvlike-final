@@ -1,7 +1,7 @@
 package com.wvlike.msg.controller;
 
 import com.wvlike.common.base.result.ResultDTO;
-import com.wvlike.facade.msg.test.MsgTestFacade;
+import com.wvlike.msg.facade.msg.test.MsgTestFacade;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

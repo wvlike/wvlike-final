@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util;
+package com.wvlike.common.util;
 
 
 import org.apache.commons.lang3.RandomUtils;

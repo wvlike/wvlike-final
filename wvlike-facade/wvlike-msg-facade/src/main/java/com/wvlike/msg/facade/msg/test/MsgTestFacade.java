@@ -1,7 +1,7 @@
-package com.wvlike.facade.msg.test;
+package com.wvlike.msg.facade.msg.test;
 
 import com.wvlike.common.base.result.ResultDTO;
-import com.wvlike.fallback.msg.test.MsgTestFallback;
+import com.wvlike.msg.fallback.msg.test.MsgTestFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 

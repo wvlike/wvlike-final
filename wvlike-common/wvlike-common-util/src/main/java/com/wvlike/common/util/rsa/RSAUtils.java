@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util.rsa;
+package com.wvlike.common.util.rsa;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.ArrayUtil;

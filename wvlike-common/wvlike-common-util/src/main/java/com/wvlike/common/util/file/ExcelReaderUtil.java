@@ -1,8 +1,8 @@
-package com.wvlike.common.core.util.file;
+package com.wvlike.common.util.file;
 
 import com.wvlike.common.base.constants.ExcelConstant;
-import com.wvlike.common.core.util.file.excel.ExcelReadDataDelegated;
-import com.wvlike.common.core.util.file.excel.ExcelXlsxReaderWithDefaultHandler;
+import com.wvlike.common.util.file.excel.ExcelReadDataDelegated;
+import com.wvlike.common.util.file.excel.ExcelXlsxReaderWithDefaultHandler;
 
 import java.util.List;
 

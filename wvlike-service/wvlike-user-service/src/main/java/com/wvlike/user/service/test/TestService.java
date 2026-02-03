@@ -1,6 +1,6 @@
 package com.wvlike.user.service.test;
 
-import com.wvlike.facade.msg.test.MsgTestFacade;
+import com.wvlike.msg.facade.msg.test.MsgTestFacade;
 import com.wvlike.user.properties.test.MyApolloProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

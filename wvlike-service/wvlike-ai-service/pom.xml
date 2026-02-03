@@ -27,7 +27,6 @@
         </dependency>
 
         <!-- Druid 数据连接池依赖 -->
-        <!-- mysql -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -103,7 +102,6 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
         </dependency>
 
         <!--web起步依赖-->
@@ -149,7 +147,6 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
         </dependency>
 
         <!--lombok支持-->
@@ -189,7 +186,12 @@
             <version>2.0.3</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.alicp.jetcache</groupId>
+            <artifactId>jetcache-anno</artifactId>
+            <version>2.6.0</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

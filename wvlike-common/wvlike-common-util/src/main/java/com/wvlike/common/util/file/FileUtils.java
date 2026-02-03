@@ -1,4 +1,4 @@
-package com.wvlike.common.core.util.file;
+package com.wvlike.common.util.file;
 
 import cn.hutool.core.io.IoUtil;
 import com.wvlike.common.base.exception.CommonException;
