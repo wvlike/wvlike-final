@@ -1,0 +1,21 @@
+server:
+  port: 8899
+spring:
+  application:
+    name: wvlike-ai-demo
+  # DeepSeek 的 Api key
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: https://api.deepseek.com
+      chat:
+        model: gpt-3.5-turbo
+        # model: gpt-4.1-mini
+        options:
+          model: deepseek-chat
+          temperature: 0.7
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer_service
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}

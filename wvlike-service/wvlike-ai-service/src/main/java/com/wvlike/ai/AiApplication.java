@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 public class AiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AiApplication.class);
+        SpringApplication.run(AiApplication.class, args);
     }
 
 }

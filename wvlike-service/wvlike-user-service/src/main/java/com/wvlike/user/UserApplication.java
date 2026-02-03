@@ -32,7 +32,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class UserApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class);
+        SpringApplication.run(UserApplication.class, args);
     }
 
 }

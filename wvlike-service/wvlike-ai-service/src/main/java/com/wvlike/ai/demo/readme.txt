@@ -1,0 +1,4 @@
+聊天模型：ChatClient、ChatModel
+嵌入模型：EmbeddingClient、EmbeddingModel
+图像模型：ImageClient、ImageModel
+语音模型：AudioClient、AudioModel

@@ -30,7 +30,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class MsgApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MsgApplication.class);
+        SpringApplication.run(MsgApplication.class, args);
     }
 
 }
