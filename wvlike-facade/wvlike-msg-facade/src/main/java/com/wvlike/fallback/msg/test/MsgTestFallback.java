@@ -1,7 +1,7 @@
 package com.wvlike.fallback.msg.test;
 
-import com.ismyself.common.base.result.ResultCode;
-import com.ismyself.common.base.result.ResultDTO;
+import com.wvlike.common.base.result.ResultCode;
+import com.wvlike.common.base.result.ResultDTO;
 import com.wvlike.facade.msg.test.MsgTestFacade;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

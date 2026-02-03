@@ -1,6 +1,6 @@
 package com.wvlike.gateway.controller;
 
-import com.ismyself.common.base.result.ResultDTO;
+import com.wvlike.common.base.result.ResultDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

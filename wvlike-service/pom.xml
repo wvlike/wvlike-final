@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>wvlike-final</artifactId>
-        <groupId>com.ismyself</groupId>
+        <groupId>com.wvlike</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,6 +13,7 @@
         <module>wvlike-user-service</module>
         <module>wvlike-msg-service</module>
         <module>wvlike-agent-service</module>
+        <module>wvlike-ai-service</module>
     </modules>
     <artifactId>wvlike-service</artifactId>
 

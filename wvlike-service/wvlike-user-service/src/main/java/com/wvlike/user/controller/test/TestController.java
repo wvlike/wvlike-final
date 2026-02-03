@@ -1,6 +1,6 @@
 package com.wvlike.user.controller.test;
 
-import com.ismyself.common.base.result.ResultDTO;
+import com.wvlike.common.base.result.ResultDTO;
 import com.wvlike.user.properties.test.MyApolloProperties;
 import com.wvlike.user.service.test.TestService;
 import lombok.extern.slf4j.Slf4j;

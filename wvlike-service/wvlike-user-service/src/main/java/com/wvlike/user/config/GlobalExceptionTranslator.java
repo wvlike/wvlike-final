@@ -1,6 +1,6 @@
 package com.wvlike.user.config;
 
-import com.ismyself.common.base.result.ResultDTO;
+import com.wvlike.common.base.result.ResultDTO;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
